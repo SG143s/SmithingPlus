@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "smithingplus",
+	"version": "${version}",
+	"name": "SmithingPlus",
+	"description": "A mod that expands the usage of Smithing Table",
+	"authors": [
+		"SG143"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/smithingplus/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.plusplus.smithing.SmithingPlus"
+		],
+		"client": [
+			"net.plusplus.smithing.SmithingPlusClient"
+		],
+		"fabric-datagen": [
+			"net.plusplus.smithing.SmithingPlusDataGenerator"
+		]
+	},
+	"mixins": [
+		"smithingplus.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.3",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
