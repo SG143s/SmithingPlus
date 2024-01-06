@@ -30,9 +30,9 @@ public class ModItems {
             new PickaxeItem(ModToolMaterial.UNREFINED_GOLD, 1, -2.8f, new FabricItemSettings()));
 
     private static void addIngredientMenu (FabricItemGroupEntries entries) {
+        entries.add(SWORD_TEMPLATE);
         entries.add(PICK_TEMPLATE);
         entries.add(AXE_TEMPLATE);
-        entries.add(SWORD_TEMPLATE);
         entries.add(SHOVEL_TEMPLATE);
         entries.add(HOE_TEMPLATE);
     }

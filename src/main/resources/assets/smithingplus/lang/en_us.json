@@ -1,5 +1,9 @@
 {
   "item.smithingplus.pickaxe_refining_template": "Pickaxe Refining Template",
+  "item.smithingplus.sword_refining_template": "Sword Refining Template",
+  "item.smithingplus.axe_refining_template": "Axe Refining Template",
+  "item.smithingplus.shovel_refining_template": "Shovel Refining Template",
+  "item.smithingplus.hoe_refining_template": "Hoe Refining Template",
   "item.smithingplus.unrefined_diamond_pickaxe": "Unrefined Diamond Pickaxe",
   "item.smithingplus.unrefined_golden_pickaxe": "Unrefined Gold Pickaxe",
   "item.smithingplus.unrefined_iron_pickaxe": "Unrefined Iron Pickaxe"
