@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:gold_ingot"
+  },
+  "base": {
+    "item": "smithingplus:unrefined_golden_pickaxe"
+  },
+  "result": {
+    "item": "minecraft:golden_pickaxe"
+  },
+  "template": {
+    "item": "smithingplus:pickaxe_refining_template"
+  }
+}

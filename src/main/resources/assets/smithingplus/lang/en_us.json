@@ -1,4 +1,6 @@
 {
   "item.smithingplus.pickaxe_refining_template": "Pickaxe Refining Template",
-  "item.smithingplus.unrefined_diamond_pickaxe": "Unrefined Diamond Pickaxe"
+  "item.smithingplus.unrefined_diamond_pickaxe": "Unrefined Diamond Pickaxe",
+  "item.smithingplus.unrefined_golden_pickaxe": "Unrefined Gold Pickaxe",
+  "item.smithingplus.unrefined_iron_pickaxe": "Unrefined Iron Pickaxe"
 }
