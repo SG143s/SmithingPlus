@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:diamond"
+  },
+  "base": {
+    "item": "smithingplus:unrefined_diamond_pickaxe"
+  },
+  "result": {
+    "item": "minecraft:diamond_pickaxe"
+  },
+  "template": {
+    "item": "smithingplus:pickaxe_refining_template"
+  }
+}

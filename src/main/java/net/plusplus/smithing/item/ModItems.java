@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.registry.Registries;
@@ -22,7 +21,7 @@ public class ModItems {
     private static void addIngredientMenu (FabricItemGroupEntries entries) {
         entries.add(PICK_TEMPLATE);
     }
-    private static void addToolMenu (FabricItemGroupEntries entries) {entries.add(UNREFINED_DIAMOND_PICKAXE);}
+    private static void addToolMenu (FabricItemGroupEntries entries) { entries.add(UNREFINED_DIAMOND_PICKAXE); }
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(SmithingPlus.MODID, name), item);
@@ -31,6 +30,6 @@ public class ModItems {
         SmithingPlus.LOGGER.info("Reg Mod Items " + SmithingPlus.MODID);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addIngredientMenu);
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(ModItems::addIngredientMenu);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(ModItems::addToolMenu);
     }
 }
