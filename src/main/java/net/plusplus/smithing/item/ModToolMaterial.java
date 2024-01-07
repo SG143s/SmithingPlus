@@ -12,7 +12,7 @@ public enum ModToolMaterial implements ToolMaterial {
             () -> Ingredient.ofItems(Items.DIAMOND)),
     UNREFINED_IRON(151, 4.75f, 2.25f, MiningLevels.IRON, 0,
             () -> Ingredient.ofItems(Items.IRON_INGOT)),
-    UNREFINED_GOLD(10, 9f, 0.5f, MiningLevels.WOOD, 0,
+    UNREFINED_GOLD(10, 9f, 0.25f, MiningLevels.WOOD, 0,
             () -> Ingredient.ofItems(Items.GOLD_INGOT));
 
     public final int itemDur;

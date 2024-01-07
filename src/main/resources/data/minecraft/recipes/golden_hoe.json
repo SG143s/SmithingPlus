@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:gold_ingot"
+  },
+  "base": {
+    "item": "smithingplus:unrefined_golden_hoe"
+  },
+  "result": {
+    "item": "minecraft:golden_hoe"
+  },
+  "template": {
+    "item": "smithingplus:hoe_refining_template"
+  }
+}

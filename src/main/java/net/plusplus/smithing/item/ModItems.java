@@ -97,30 +97,44 @@ class HoeRefiningTemplate extends Item {
 }
 
 public class ModItems {
-
     public static final Item PICK_TEMPLATE = registerItem("pickaxe_refining_template", new PickaxeRefiningTemplate(new FabricItemSettings()));
     public static final Item AXE_TEMPLATE = registerItem("axe_refining_template", new AxeRefiningTemplate(new FabricItemSettings()));
     public static final Item SWORD_TEMPLATE = registerItem("sword_refining_template", new SwordRefiningTemplate(new FabricItemSettings()));
     public static final Item SHOVEL_TEMPLATE = registerItem("shovel_refining_template", new ShovelRefiningTemplate(new FabricItemSettings()));
     public static final Item HOE_TEMPLATE = registerItem("hoe_refining_template", new HoeRefiningTemplate(new FabricItemSettings()));
 
-
     public static final Item UNREFINED_DIAMOND_PICKAXE = registerItem("unrefined_diamond_pickaxe",
             new PickaxeItem(ModToolMaterial.UNREFINED_DIAMOND, 0, -2.8f, new FabricItemSettings()));
     public static final Item UNREFINED_DIAMOND_SWORD = registerItem("unrefined_diamond_sword",
             new SwordItem(ModToolMaterial.UNREFINED_DIAMOND, 2, -2.4f, new FabricItemSettings()));
     public static final Item UNREFINED_DIAMOND_AXE = registerItem("unrefined_diamond_axe",
-            new AxeItem(ModToolMaterial.UNREFINED_DIAMOND, 5.25f, -3.1f, new FabricItemSettings()));
+            new AxeItem(ModToolMaterial.UNREFINED_DIAMOND, 4.25f, -3.1f, new FabricItemSettings()));
     public static final Item UNREFINED_DIAMOND_SHOVEL = registerItem("unrefined_diamond_shovel",
             new ShovelItem(ModToolMaterial.UNREFINED_DIAMOND, 0.5f, -3f, new FabricItemSettings()));
     public static final Item UNREFINED_DIAMOND_HOE = registerItem("unrefined_diamond_hoe",
             new HoeItem(ModToolMaterial.UNREFINED_DIAMOND, -3, -1f, new FabricItemSettings()));
 
-    public static final Item UNREFINED_IRON_PICKAXE = registerItem("unrefined_iron_pickaxe",
-            new PickaxeItem(ModToolMaterial.UNREFINED_IRON, 1, -2.8f, new FabricItemSettings()));
-
     public static final Item UNREFINED_GOLDEN_PICKAXE = registerItem("unrefined_golden_pickaxe",
-            new PickaxeItem(ModToolMaterial.UNREFINED_GOLD, 1, -2.8f, new FabricItemSettings()));
+            new PickaxeItem(ModToolMaterial.UNREFINED_GOLD, 0, -2.8f, new FabricItemSettings()));
+    public static final Item UNREFINED_GOLDEN_SWORD = registerItem("unrefined_golden_sword",
+            new SwordItem(ModToolMaterial.UNREFINED_GOLD, 2, -2.4f, new FabricItemSettings()));
+    public static final Item UNREFINED_GOLDEN_AXE = registerItem("unrefined_golden_axe",
+            new AxeItem(ModToolMaterial.UNREFINED_GOLD, 4.25f, -3.1f, new FabricItemSettings()));
+    public static final Item UNREFINED_GOLDEN_SHOVEL = registerItem("unrefined_golden_shovel",
+            new ShovelItem(ModToolMaterial.UNREFINED_GOLD, 0.5f, -3f, new FabricItemSettings()));
+    public static final Item UNREFINED_GOLDEN_HOE = registerItem("unrefined_golden_hoe",
+            new HoeItem(ModToolMaterial.UNREFINED_GOLD, -1, -1f, new FabricItemSettings()));
+
+    public static final Item UNREFINED_IRON_PICKAXE = registerItem("unrefined_iron_pickaxe",
+            new PickaxeItem(ModToolMaterial.UNREFINED_IRON, 0, -2.8f, new FabricItemSettings()));
+    public static final Item UNREFINED_IRON_SWORD = registerItem("unrefined_iron_sword",
+            new SwordItem(ModToolMaterial.UNREFINED_IRON, 2, -2.4f, new FabricItemSettings()));
+    public static final Item UNREFINED_IRON_AXE = registerItem("unrefined_iron_axe",
+            new AxeItem(ModToolMaterial.UNREFINED_IRON, 4.25f, -3.1f, new FabricItemSettings()));
+    public static final Item UNREFINED_IRON_SHOVEL = registerItem("unrefined_iron_shovel",
+            new ShovelItem(ModToolMaterial.UNREFINED_IRON, 0.5f, -3f, new FabricItemSettings()));
+    public static final Item UNREFINED_IRON_HOE = registerItem("unrefined_iron_hoe",
+            new HoeItem(ModToolMaterial.UNREFINED_IRON, -3, -1f, new FabricItemSettings()));
 
     private static void addIngredientMenu (FabricItemGroupEntries entries) {
         entries.add(SWORD_TEMPLATE);
@@ -136,15 +150,21 @@ public class ModItems {
         entries.add(UNREFINED_DIAMOND_HOE);
 
         entries.add(UNREFINED_GOLDEN_PICKAXE);
+        entries.add(UNREFINED_GOLDEN_AXE);
+        entries.add(UNREFINED_GOLDEN_SHOVEL);
+        entries.add(UNREFINED_GOLDEN_HOE);
 
         entries.add(UNREFINED_IRON_PICKAXE);
+        entries.add(UNREFINED_IRON_AXE);
+        entries.add(UNREFINED_IRON_SHOVEL);
+        entries.add(UNREFINED_IRON_HOE);
     }
-
     private static void addCombatMenu (FabricItemGroupEntries entries) {
         entries.add(UNREFINED_DIAMOND_SWORD);
+        entries.add(UNREFINED_GOLDEN_SWORD);
+        entries.add(UNREFINED_IRON_SWORD);
     }
-
-    private static Item registerItem(String name, Item item) {
+    static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(SmithingPlus.MODID, name), item);
     }
     public static void registerModItems() {

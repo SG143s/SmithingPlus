@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:iron_ingot"
+  },
+  "base": {
+    "item": "smithingplus:unrefined_iron_shovel"
+  },
+  "result": {
+    "item": "minecraft:iron_shovel"
+  },
+  "template": {
+    "item": "smithingplus:shovel_refining_template"
+  }
+}
