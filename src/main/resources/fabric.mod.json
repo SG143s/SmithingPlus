@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "smithing-plus",
+	"version": "${version}",
+	"name": "Smithing Plus",
+	"description": "Simple Vanilla plus mod that revamp tools Crafting",
+	"authors": [
+		"SG_143"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/smithing-plus/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.sg143.smithing_plus.SmithingPlus"
+		],
+		"fabric-datagen": [
+			"com.sg143.smithing_plus.SmithingPlusDataGenerator"
+		],
+		"client": [
+			"com.sg143.smithing_plus.SmithingPlusClient"
+		]
+	},
+	"mixins": [
+		"smithing-plus.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
