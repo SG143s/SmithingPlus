@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:gold_ingot"
+  },
+  "base": {
+    "item": "smithingplus:unrefined_golden_axe"
+  },
+  "result": {
+    "item": "minecraft:golden_axe"
+  },
+  "template": {
+    "item": "smithingplus:axe_refining_template"
+  }
+}

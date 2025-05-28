@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:diamond"
+  },
+  "base": {
+    "item": "smithingplus:unrefined_diamond_shovel"
+  },
+  "result": {
+    "item": "minecraft:diamond_shovel"
+  },
+  "template": {
+    "item": "smithingplus:shovel_refining_template"
+  }
+}

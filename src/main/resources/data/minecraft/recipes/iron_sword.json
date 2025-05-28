@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:iron_ingot"
+  },
+  "base": {
+    "item": "smithingplus:unrefined_iron_sword"
+  },
+  "result": {
+    "item": "minecraft:iron_sword"
+  },
+  "template": {
+    "item": "smithingplus:sword_refining_template"
+  }
+}

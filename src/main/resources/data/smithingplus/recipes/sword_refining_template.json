@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "smithingplus:sword_refining_template"
+    },
+    "X": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "pattern": [
+    "X#X",
+    "X X",
+    "XXX"
+  ],
+  "result": {
+    "count": 2,
+    "item": "smithingplus:sword_refining_template"
+  },
+  "show_notification": true
+}

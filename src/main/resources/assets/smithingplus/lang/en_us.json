@@ -1,0 +1,35 @@
+{
+  "item.smithingplus.pickaxe_refining_template": "Pickaxe Refining Template",
+  "item.smithingplus.sword_refining_template": "Sword Refining Template",
+  "item.smithingplus.axe_refining_template": "Axe Refining Template",
+  "item.smithingplus.shovel_refining_template": "Shovel Refining Template",
+  "item.smithingplus.hoe_refining_template": "Hoe Refining Template",
+
+  "item.smithingplus.unrefined_diamond_sword": "Unrefined Diamond Sword",
+  "item.smithingplus.unrefined_diamond_pickaxe": "Unrefined Diamond Pickaxe",
+  "item.smithingplus.unrefined_diamond_axe": "Unrefined Diamond Axe",
+  "item.smithingplus.unrefined_diamond_shovel": "Unrefined Diamond Shovel",
+  "item.smithingplus.unrefined_diamond_hoe": "Unrefined Diamond Hoe",
+
+  "item.smithingplus.unrefined_golden_sword": "Unrefined Golden Sword",
+  "item.smithingplus.unrefined_golden_pickaxe": "Unrefined Golden Pickaxe",
+  "item.smithingplus.unrefined_golden_axe": "Unrefined Golden Axe",
+  "item.smithingplus.unrefined_golden_shovel": "Unrefined Golden Shovel",
+  "item.smithingplus.unrefined_golden_hoe": "Unrefined Golden Hoe",
+
+  "item.smithingplus.unrefined_iron_sword": "Unrefined Iron Sword",
+  "item.smithingplus.unrefined_iron_pickaxe": "Unrefined Iron Pickaxe",
+  "item.smithingplus.unrefined_iron_axe": "Unrefined Iron Axe",
+  "item.smithingplus.unrefined_iron_shovel": "Unrefined Iron Shovel",
+  "item.smithingplus.unrefined_iron_hoe": "Unrefined Iron Hoe",
+
+  "tooltip.smithingplus.refining_template.applyState": "Applies to:",
+  "tooltip.smithingplus.refining_template.ingredientState": "Ingredients:",
+  "tooltip.smithingplus.refining_template.ingredientOption": " Ingots & Crystal",
+
+  "tooltip.smithingplus.sword_refining_template.applyOption": " Sword",
+  "tooltip.smithingplus.pickaxe_refining_template.applyOption": " Pickaxe",
+  "tooltip.smithingplus.axe_refining_template.applyOption": " Axe",
+  "tooltip.smithingplus.shovel_refining_template.applyOption": " Shovel",
+  "tooltip.smithingplus.hoe_refining_template.applyOption": " Hoe"
+}
