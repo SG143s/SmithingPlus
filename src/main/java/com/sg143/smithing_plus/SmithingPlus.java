@@ -1,5 +1,7 @@
 package com.sg143.smithing_plus;
 
+import com.sg143.smithing_plus.item.ModItemGroup;
+import com.sg143.smithing_plus.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -15,9 +17,8 @@ public class SmithingPlus implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+		ModItems.registerModItems();
+		ModItemGroup.registerModItemGroup();
 
 		LOGGER.info("Hello Fabric world!");
 	}

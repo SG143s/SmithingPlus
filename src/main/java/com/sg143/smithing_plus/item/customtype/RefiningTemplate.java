@@ -17,25 +17,27 @@ public class RefiningTemplate extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip.smithingplus.refining_template.applyState"));
+        tooltip.add(Text.translatable("tooltip.smithing-plus.refining_template.type").formatted(Formatting.GRAY));
+        tooltip.add(Text.empty());
+        tooltip.add(Text.translatable("tooltip.smithing-plus.refining_template.applyState").formatted(Formatting.GRAY));
         switch (this.templatetype) {
             case "pickaxe":
-                tooltip.add(Text.translatable("tooltip.smithingplus.pickaxe_refining_template.applyOption").formatted(Formatting.BLUE));
+                tooltip.add(Text.translatable("tooltip.smithing-plus.pickaxe_refining_template.applyOption").formatted(Formatting.BLUE));
                 break;
             case "axe":
-                tooltip.add(Text.translatable("tooltip.smithingplus.axe_refining_template.applyOption").formatted(Formatting.BLUE));
+                tooltip.add(Text.translatable("tooltip.smithing-plus.axe_refining_template.applyOption").formatted(Formatting.BLUE));
                 break;
             case "shovel":
-                tooltip.add(Text.translatable("tooltip.smithingplus.shovel_refining_template.applyOption").formatted(Formatting.BLUE));
+                tooltip.add(Text.translatable("tooltip.smithing-plus.shovel_refining_template.applyOption").formatted(Formatting.BLUE));
                 break;
             case "hoe":
-                tooltip.add(Text.translatable("tooltip.smithingplus.hoe_refining_template.applyOption").formatted(Formatting.BLUE));
+                tooltip.add(Text.translatable("tooltip.smithing-plus.hoe_refining_template.applyOption").formatted(Formatting.BLUE));
                 break;
             default:
-                tooltip.add(Text.translatable("tooltip.smithingplus.sword_refining_template.applyOption").formatted(Formatting.BLUE));
+                tooltip.add(Text.translatable("tooltip.smithing-plus.sword_refining_template.applyOption").formatted(Formatting.BLUE));
         }
-        tooltip.add(Text.translatable("tooltip.smithingplus.refining_template.ingredientState"));
-        tooltip.add(Text.translatable("tooltip.smithingplus.refining_template.ingredientOption").formatted(Formatting.BLUE));
+        tooltip.add(Text.translatable("tooltip.smithing-plus.refining_template.ingredientState").formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable("tooltip.smithing-plus.refining_template.ingredientOption").formatted(Formatting.BLUE));
         super.appendTooltip(stack, context, tooltip, type);
     }
 }
