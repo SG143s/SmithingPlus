@@ -37,6 +37,7 @@ public class RecipeOverwriteProvider extends FabricRecipeProvider {
             public void generate() {
                 generateRefiningRecipe();
                 generateWoodenTools();
+                generateStoneTools();
             }
             private void generateRefiningRecipe() {
                 record RefiningData(Item template, Item input, TagKey<Item> materialTag, RecipeCategory category, Item result) {}
@@ -45,7 +46,19 @@ public class RecipeOverwriteProvider extends FabricRecipeProvider {
                         new RefiningData(ModItems.AXE_TEMPLATE, ModItems.UNREFINED_DIAMOND_AXE, ItemTags.DIAMOND_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.DIAMOND_AXE),
                         new RefiningData(ModItems.SWORD_TEMPLATE, ModItems.UNREFINED_DIAMOND_SWORD, ItemTags.DIAMOND_TOOL_MATERIALS, RecipeCategory.COMBAT, Items.DIAMOND_SWORD),
                         new RefiningData(ModItems.SHOVEL_TEMPLATE, ModItems.UNREFINED_DIAMOND_SHOVEL, ItemTags.DIAMOND_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.DIAMOND_SHOVEL),
-                        new RefiningData(ModItems.HOE_TEMPLATE, ModItems.UNREFINED_DIAMOND_HOE, ItemTags.DIAMOND_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.DIAMOND_HOE)
+                        new RefiningData(ModItems.HOE_TEMPLATE, ModItems.UNREFINED_DIAMOND_HOE, ItemTags.DIAMOND_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.DIAMOND_HOE),
+
+                        new RefiningData(ModItems.PICKAXE_TEMPLATE, ModItems.UNREFINED_IRON_PICKAXE, ItemTags.IRON_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.IRON_PICKAXE),
+                        new RefiningData(ModItems.AXE_TEMPLATE, ModItems.UNREFINED_IRON_AXE, ItemTags.IRON_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.IRON_AXE),
+                        new RefiningData(ModItems.SWORD_TEMPLATE, ModItems.UNREFINED_IRON_SWORD, ItemTags.IRON_TOOL_MATERIALS, RecipeCategory.COMBAT, Items.IRON_SWORD),
+                        new RefiningData(ModItems.SHOVEL_TEMPLATE, ModItems.UNREFINED_IRON_SHOVEL, ItemTags.IRON_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.IRON_SHOVEL),
+                        new RefiningData(ModItems.HOE_TEMPLATE, ModItems.UNREFINED_IRON_HOE, ItemTags.IRON_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.IRON_HOE),
+
+                        new RefiningData(ModItems.PICKAXE_TEMPLATE, ModItems.UNREFINED_GOLDEN_PICKAXE, ItemTags.GOLD_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.GOLDEN_PICKAXE),
+                        new RefiningData(ModItems.AXE_TEMPLATE, ModItems.UNREFINED_GOLDEN_AXE, ItemTags.GOLD_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.GOLDEN_AXE),
+                        new RefiningData(ModItems.SWORD_TEMPLATE, ModItems.UNREFINED_GOLDEN_SWORD, ItemTags.GOLD_TOOL_MATERIALS, RecipeCategory.COMBAT, Items.GOLDEN_SWORD),
+                        new RefiningData(ModItems.SHOVEL_TEMPLATE, ModItems.UNREFINED_GOLDEN_SHOVEL, ItemTags.GOLD_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.GOLDEN_SHOVEL),
+                        new RefiningData(ModItems.HOE_TEMPLATE, ModItems.UNREFINED_GOLDEN_HOE, ItemTags.GOLD_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.GOLDEN_HOE)
                 );
                 for (RefiningData r : recipes) {
                     refiningRecipeProvider.offerRefiningRecipe(r.template, r.input, r.materialTag, r.category, r.result);
@@ -66,6 +79,27 @@ public class RecipeOverwriteProvider extends FabricRecipeProvider {
                             .input('C', Items.STICK)
                             .input('X', Items.STRING)
                             .criterion(hasItem(Items.STICK), this.conditionsFromItem(Items.STICK));
+                    for (String line : tool.pattern) {
+                        builder.pattern(line);
+                    }
+                    builder.offerTo(this.exporter);
+                }
+            }
+            private void generateStoneTools() {
+                record ToolData(Item result, RecipeCategory category, List<String> pattern) {}
+                List<ToolData> tools = List.of(
+                        new ToolData(Items.STONE_PICKAXE, RecipeCategory.TOOLS, List.of("###", "XC ", " C ")),
+                        new ToolData(Items.STONE_AXE, RecipeCategory.TOOLS, List.of("##", "#C", "XC")),
+                        new ToolData(Items.STONE_SHOVEL, RecipeCategory.TOOLS, List.of(" #", "XC", " C")),
+                        new ToolData(Items.STONE_SWORD, RecipeCategory.TOOLS, List.of(" #", " #", "XC")),
+                        new ToolData(Items.STONE_HOE, RecipeCategory.TOOLS, List.of("##", "XC", " C"))
+                );
+                for (ToolData tool : tools) {
+                    var builder = this.createShaped(tool.category, tool.result)
+                            .input('#', this.ingredientFromTag(ItemTags.STONE_TOOL_MATERIALS))
+                            .input('C', Items.STICK)
+                            .input('X', Items.STRING)
+                            .criterion(hasItem(Items.COBBLESTONE), this.conditionsFromItem(Items.COBBLESTONE));
                     for (String line : tool.pattern) {
                         builder.pattern(line);
                     }

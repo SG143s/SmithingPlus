@@ -11,6 +11,7 @@ public class ModTags {
         public static final TagKey<Item> UNREFINED_DIAMOND_ITEM = createTag("unrefined_diamond_item");
         public static final TagKey<Item> UNREFINED_IRON_ITEM = createTag("unrefined_iron_item");
         public static final TagKey<Item> UNREFINED_GOLD_ITEM = createTag("unrefined_gold_item");
+        public static final TagKey<Item> REFINING_TEMPLATE = createTag("refining_template_item");
 
         public static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(SmithingPlus.MOD_ID, name));

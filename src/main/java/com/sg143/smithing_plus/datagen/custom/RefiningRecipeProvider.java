@@ -35,7 +35,7 @@ public class RefiningRecipeProvider extends RecipeGenerator {
                 category,
                 output
         )
-                .criterion("craft_unrefined_diamond", this.conditionsFromTag(ModTags.Items.UNREFINED_DIAMOND_ITEM))
+                .criterion("have_refining_template", this.conditionsFromTag(ModTags.Items.REFINING_TEMPLATE))
                 .offerTo(this.exporter, recipeId.toString());
     }
 

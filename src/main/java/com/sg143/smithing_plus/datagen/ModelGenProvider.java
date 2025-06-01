@@ -17,16 +17,33 @@ public class ModelGenProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        //region == TEMPLATES ==
         itemModelGenerator.register(ModItems.SWORD_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.PICKAXE_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.AXE_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.SHOVEL_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HOE_TEMPLATE, Models.GENERATED);
-
+        //endregion
+        //region == UNREFINED DIAMONDS ==
         itemModelGenerator.register(ModItems.UNREFINED_DIAMOND_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.UNREFINED_DIAMOND_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.UNREFINED_DIAMOND_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.UNREFINED_DIAMOND_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.UNREFINED_DIAMOND_HOE, Models.HANDHELD);
+        //endregion
+        //region == UNREFINED IRONS ==
+        itemModelGenerator.register(ModItems.UNREFINED_IRON_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.UNREFINED_IRON_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.UNREFINED_IRON_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.UNREFINED_IRON_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.UNREFINED_IRON_HOE, Models.HANDHELD);
+        //endregion
+        //region == UNREFINED GOLDS ==
+        itemModelGenerator.register(ModItems.UNREFINED_GOLDEN_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.UNREFINED_GOLDEN_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.UNREFINED_GOLDEN_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.UNREFINED_GOLDEN_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.UNREFINED_GOLDEN_HOE, Models.HANDHELD);
+        //endregion
     }
 }

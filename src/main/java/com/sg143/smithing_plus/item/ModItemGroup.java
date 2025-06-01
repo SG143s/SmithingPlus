@@ -15,14 +15,30 @@ public class ModItemGroup {
     }
 
     public static void addToolMenu (FabricItemGroupEntries entries) {
+        entries.add(ModItems.UNREFINED_GOLDEN_SHOVEL);
+        entries.add(ModItems.UNREFINED_GOLDEN_PICKAXE);
+        entries.add(ModItems.UNREFINED_GOLDEN_AXE);
+        entries.add(ModItems.UNREFINED_GOLDEN_HOE);
+
+        entries.add(ModItems.UNREFINED_IRON_SHOVEL);
+        entries.add(ModItems.UNREFINED_IRON_PICKAXE);
+        entries.add(ModItems.UNREFINED_IRON_AXE);
+        entries.add(ModItems.UNREFINED_IRON_HOE);
+
+        entries.add(ModItems.UNREFINED_DIAMOND_SHOVEL);
         entries.add(ModItems.UNREFINED_DIAMOND_PICKAXE);
         entries.add(ModItems.UNREFINED_DIAMOND_AXE);
-        entries.add(ModItems.UNREFINED_DIAMOND_SHOVEL);
         entries.add(ModItems.UNREFINED_DIAMOND_HOE);
     }
 
     public static void addWeaponMenu (FabricItemGroupEntries entries) {
+        entries.add(ModItems.UNREFINED_GOLDEN_SWORD);
+        entries.add(ModItems.UNREFINED_IRON_SWORD);
         entries.add(ModItems.UNREFINED_DIAMOND_SWORD);
+
+        entries.add(ModItems.UNREFINED_GOLDEN_AXE);
+        entries.add(ModItems.UNREFINED_IRON_AXE);
+        entries.add(ModItems.UNREFINED_DIAMOND_AXE);
     }
     public static void registerModItemGroup () {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItemGroup::addIngredientMenu);
