@@ -57,5 +57,10 @@ public class LanguageEngGenProvider extends FabricLanguageProvider {
         translationBuilder.add("tooltip.smithing-plus.refining_template.ingredientState","Ingredients:");
         translationBuilder.add("tooltip.smithing-plus.refining_template.ingredientOption","Ingots & Diamond");
         //endregion
+
+        //region == OTHER ==
+        translationBuilder.add("item.smithing-plus.tool_handle", "Tool Handle");
+        translationBuilder.add("item.smithing-plus.mace_handle", "Mace Handle");
+        //endregion
     }
 }

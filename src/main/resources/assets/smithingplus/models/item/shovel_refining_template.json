@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "smithingplus:item/shovel_refining_template"
-  }
-}

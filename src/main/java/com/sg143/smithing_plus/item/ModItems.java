@@ -60,6 +60,10 @@ public class ModItems {
     public static final Item UNREFINED_GOLDEN_HOE = registerItem("unrefined_golden_hoe",
             settings -> new HoeItem(ModToolMaterial.UNREFINED_GOLD, -1.0f, -1f, settings));
     //endregion
+    //region === OTHER ===
+    public static Item TOOL_HANDLE = registerItem("tool_handle", Item::new);
+    public static Item MACE_HANDLE = registerItem("mace_handle", Item::new);
+    //endregion
 
     private static Item registerItem(String name, Function<Item.Settings, Item> function) {
         return Registry.register(Registries.ITEM, Identifier.of(SmithingPlus.MOD_ID, name),

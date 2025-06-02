@@ -38,6 +38,13 @@ public class RecipeOverwriteProvider extends FabricRecipeProvider {
                 generateRefiningRecipe();
                 generateWoodenTools();
                 generateStoneTools();
+                this.createShaped(RecipeCategory.COMBAT, Items.MACE)
+                        .input('X', Items.HEAVY_CORE)
+                        .input('#', ModItems.MACE_HANDLE)
+                        .pattern("X")
+                        .pattern("#")
+                        .criterion(hasItem(Items.HEAVY_CORE), this.conditionsFromItem(Items.HEAVY_CORE))
+                        .offerTo(this.exporter);
             }
             private void generateRefiningRecipe() {
                 record RefiningData(Item template, Item input, TagKey<Item> materialTag, RecipeCategory category, Item result) {}

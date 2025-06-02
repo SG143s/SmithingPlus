@@ -12,6 +12,9 @@ public class ModItemGroup {
         entries.add(ModItems.SHOVEL_TEMPLATE);
         entries.add(ModItems.HOE_TEMPLATE);
 
+        entries.add(ModItems.TOOL_HANDLE);
+        entries.add(ModItems.MACE_HANDLE);
+
     }
 
     public static void addToolMenu (FabricItemGroupEntries entries) {
