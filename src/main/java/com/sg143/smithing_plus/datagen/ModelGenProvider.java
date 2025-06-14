@@ -37,6 +37,7 @@ public class ModelGenProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.UNREFINED_IRON_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.UNREFINED_IRON_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.UNREFINED_IRON_HOE, Models.HANDHELD);
+
         //endregion
         //region == UNREFINED GOLDS ==
         itemModelGenerator.register(ModItems.UNREFINED_GOLDEN_PICKAXE, Models.HANDHELD);
