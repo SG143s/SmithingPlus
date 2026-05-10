@@ -1,18 +1,18 @@
 package com.sg143.smithing_plus.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.core.HolderLookup;
 
 import java.util.concurrent.CompletableFuture;
 
 public class LanguageEngGenProvider extends FabricLanguageProvider {
-    public LanguageEngGenProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    public LanguageEngGenProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, "en_us", registriesFuture);
     }
 
     @Override
-    public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
+    public void generateTranslations(HolderLookup.Provider wrapperLookup, TranslationBuilder translationBuilder) {
         //region == TEMPLATES ==
         translationBuilder.add("item.smithing-plus.sword_refining_template", "Sword Refining Template");
         translationBuilder.add("item.smithing-plus.shovel_refining_template", "Shovel Refining Template");

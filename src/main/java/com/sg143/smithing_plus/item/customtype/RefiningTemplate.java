@@ -1,43 +1,48 @@
 package com.sg143.smithing_plus.item.customtype;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Item.Properties;
+import net.minecraft.world.item.Item.TooltipContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.ChatFormatting;
+import net.minecraft.world.item.component.TooltipDisplay;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class RefiningTemplate extends Item {
     private final String templatetype;
-    public RefiningTemplate(String type, Settings settings) {
+    public RefiningTemplate(String type, Properties settings) {
         super(settings);
         this.templatetype = type;
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip.smithing-plus.refining_template.type").formatted(Formatting.GRAY));
-        tooltip.add(Text.empty());
-        tooltip.add(Text.translatable("tooltip.smithing-plus.refining_template.applyState").formatted(Formatting.GRAY));
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> consumer, TooltipFlag type) {
+
+        consumer.accept(Component.translatable("tooltip.smithing-plus.refining_template.type").withStyle(ChatFormatting.GRAY));
+        consumer.accept(Component.empty());
+        consumer.accept(Component.translatable("tooltip.smithing-plus.refining_template.applyState").withStyle(ChatFormatting.GRAY));
         switch (this.templatetype) {
             case "pickaxe":
-                tooltip.add(Text.translatable("tooltip.smithing-plus.pickaxe_refining_template.applyOption").formatted(Formatting.BLUE));
+                consumer.accept(Component.translatable("tooltip.smithing-plus.pickaxe_refining_template.applyOption").withStyle(ChatFormatting.BLUE));
                 break;
             case "axe":
-                tooltip.add(Text.translatable("tooltip.smithing-plus.axe_refining_template.applyOption").formatted(Formatting.BLUE));
+                consumer.accept(Component.translatable("tooltip.smithing-plus.axe_refining_template.applyOption").withStyle(ChatFormatting.BLUE));
                 break;
             case "shovel":
-                tooltip.add(Text.translatable("tooltip.smithing-plus.shovel_refining_template.applyOption").formatted(Formatting.BLUE));
+                consumer.accept(Component.translatable("tooltip.smithing-plus.shovel_refining_template.applyOption").withStyle(ChatFormatting.BLUE));
                 break;
             case "hoe":
-                tooltip.add(Text.translatable("tooltip.smithing-plus.hoe_refining_template.applyOption").formatted(Formatting.BLUE));
+                consumer.accept(Component.translatable("tooltip.smithing-plus.hoe_refining_template.applyOption").withStyle(ChatFormatting.BLUE));
                 break;
             default:
-                tooltip.add(Text.translatable("tooltip.smithing-plus.sword_refining_template.applyOption").formatted(Formatting.BLUE));
+                consumer.accept(Component.translatable("tooltip.smithing-plus.sword_refining_template.applyOption").withStyle(ChatFormatting.BLUE));
         }
-        tooltip.add(Text.translatable("tooltip.smithing-plus.refining_template.ingredientState").formatted(Formatting.GRAY));
-        tooltip.add(Text.translatable("tooltip.smithing-plus.refining_template.ingredientOption").formatted(Formatting.BLUE));
-        super.appendTooltip(stack, context, tooltip, type);
+        consumer.accept(Component.translatable("tooltip.smithing-plus.refining_template.ingredientState").withStyle(ChatFormatting.GRAY));
+        consumer.accept(Component.translatable("tooltip.smithing-plus.refining_template.ingredientOption").withStyle(ChatFormatting.BLUE));
+        super.appendHoverText(stack, context, display, consumer, type);
     }
 }
