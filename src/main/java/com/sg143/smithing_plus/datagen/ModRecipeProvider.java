@@ -2,48 +2,48 @@ package com.sg143.smithing_plus.datagen;
 
 import com.sg143.smithing_plus.datagen.custom.RefiningRecipeProvider;
 import com.sg143.smithing_plus.item.ModItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.recipe.RecipeExporter;
-import net.minecraft.data.recipe.RecipeGenerator;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.tags.ItemTags;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
-    public ModRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    public ModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
-    protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup wrapperLookup, RecipeExporter recipeExporter) {
+    protected RecipeProvider createRecipeProvider(HolderLookup.Provider wrapperLookup, RecipeOutput recipeExporter) {
         RefiningRecipeProvider refiningRecipeProvider = new RefiningRecipeProvider(wrapperLookup, recipeExporter);
-        return new RecipeGenerator(wrapperLookup, recipeExporter) {
+        return new RecipeProvider(wrapperLookup, recipeExporter) {
             @Override
-            public void generate() {
+            public void buildRecipes() {
                 generateCopyRecipe();
                 unrefinedIronRecipe();
                 unrefinedGoldRecipe();
                 unrefinedDiamondRecipe();
-                this.createShaped(RecipeCategory.MISC, ModItems.TOOL_HANDLE)
-                        .input('#', Items.STICK)
-                        .input('C', Items.RESIN_CLUMP)
-                        .criterion(hasItem(Items.RESIN_CLUMP), this.conditionsFromItem(Items.RESIN_CLUMP))
+                this.shaped(RecipeCategory.MISC, ModItems.TOOL_HANDLE)
+                        .define('#', Items.STICK)
+                        .define('C', Items.RESIN_CLUMP)
+                        .unlockedBy(getHasName(Items.RESIN_CLUMP), this.has(Items.RESIN_CLUMP))
                         .pattern("C#C")
                         .pattern("C#C")
-                        .offerTo(this.exporter);
-                this.createShaped(RecipeCategory.MISC, ModItems.MACE_HANDLE)
-                        .input('#', ModItems.TOOL_HANDLE)
-                        .input('C', Items.BREEZE_ROD)
-                        .criterion(hasItem(Items.BREEZE_ROD), this.conditionsFromItem(Items.BREEZE_ROD))
+                        .save(this.output);
+                this.shaped(RecipeCategory.MISC, ModItems.MACE_HANDLE)
+                        .define('#', ModItems.TOOL_HANDLE)
+                        .define('C', Items.BREEZE_ROD)
+                        .unlockedBy(getHasName(Items.BREEZE_ROD), this.has(Items.BREEZE_ROD))
                         .pattern("C#C")
                         .pattern("C#C")
-                        .offerTo(this.exporter);
+                        .save(this.output);
             }
             private void generateCopyRecipe() {
                 List<Item> templates = List.of(
@@ -67,14 +67,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         new ToolData(ModItems.UNREFINED_IRON_HOE, RecipeCategory.TOOLS, List.of("##", " C", " C"))
                 );
                 for (ToolData tool : tools) {
-                    var builder = this.createShaped(tool.category, tool.result)
-                            .input('#', this.ingredientFromTag(ItemTags.IRON_TOOL_MATERIALS))
-                            .input('C', ModItems.TOOL_HANDLE)
-                            .criterion(hasItem(Items.IRON_INGOT), this.conditionsFromItem(Items.IRON_INGOT));
+                    var builder = this.shaped(tool.category, tool.result)
+                            .define('#', this.tag(ItemTags.IRON_TOOL_MATERIALS))
+                            .define('C', ModItems.TOOL_HANDLE)
+                            .unlockedBy(getHasName(Items.IRON_INGOT), this.has(Items.IRON_INGOT));
                     for (String line : tool.pattern) {
                         builder.pattern(line);
                     }
-                    builder.offerTo(this.exporter);
+                    builder.save(this.output);
                 }
             }
             private void unrefinedDiamondRecipe() {
@@ -87,14 +87,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         new ToolData(ModItems.UNREFINED_DIAMOND_HOE, RecipeCategory.TOOLS, List.of("##", " C", " C"))
                 );
                 for (ToolData tool : tools) {
-                    var builder = this.createShaped(tool.category, tool.result)
-                            .input('#', this.ingredientFromTag(ItemTags.DIAMOND_TOOL_MATERIALS))
-                            .input('C', ModItems.TOOL_HANDLE)
-                            .criterion(hasItem(Items.DIAMOND), this.conditionsFromItem(Items.DIAMOND));
+                    var builder = this.shaped(tool.category, tool.result)
+                            .define('#', this.tag(ItemTags.DIAMOND_TOOL_MATERIALS))
+                            .define('C', ModItems.TOOL_HANDLE)
+                            .unlockedBy(getHasName(Items.DIAMOND), this.has(Items.DIAMOND));
                     for (String line : tool.pattern) {
                         builder.pattern(line);
                     }
-                    builder.offerTo(this.exporter);
+                    builder.save(this.output);
                 }
             }
             private void unrefinedGoldRecipe() {
@@ -107,14 +107,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         new ToolData(ModItems.UNREFINED_GOLDEN_HOE, RecipeCategory.TOOLS, List.of("##", " C", " C"))
                 );
                 for (ToolData tool : tools) {
-                    var builder = this.createShaped(tool.category, tool.result)
-                            .input('#', this.ingredientFromTag(ItemTags.GOLD_TOOL_MATERIALS))
-                            .input('C', ModItems.TOOL_HANDLE)
-                            .criterion(hasItem(Items.GOLD_INGOT), this.conditionsFromItem(Items.GOLD_INGOT));
+                    var builder = this.shaped(tool.category, tool.result)
+                            .define('#', this.tag(ItemTags.GOLD_TOOL_MATERIALS))
+                            .define('C', ModItems.TOOL_HANDLE)
+                            .unlockedBy(getHasName(Items.GOLD_INGOT), this.has(Items.GOLD_INGOT));
                     for (String line : tool.pattern) {
                         builder.pattern(line);
                     }
-                    builder.offerTo(this.exporter);
+                    builder.save(this.output);
                 }
             }
         };

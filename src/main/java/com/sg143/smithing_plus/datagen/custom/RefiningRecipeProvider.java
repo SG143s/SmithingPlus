@@ -1,52 +1,52 @@
 package com.sg143.smithing_plus.datagen.custom;
 
 import com.sg143.smithing_plus.util.ModTags;
-import net.minecraft.data.recipe.RecipeExporter;
-import net.minecraft.data.recipe.RecipeGenerator;
-import net.minecraft.data.recipe.SmithingTransformRecipeJsonBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
-import net.minecraft.registry.tag.TagKey;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.tags.TagKey;
 
-public class RefiningRecipeProvider extends RecipeGenerator {
+public class RefiningRecipeProvider extends RecipeProvider {
 
-    public RefiningRecipeProvider(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter) {
+    public RefiningRecipeProvider(HolderLookup.Provider registries, RecipeOutput exporter) {
         super(registries, exporter);
     }
 
     @Override
-    public void generate() {
+    public void buildRecipes() {
 
     }
 
     public void offerRefiningRecipe(Item template, Item input, TagKey<Item> addition, RecipeCategory category, Item output) {
-        Identifier itemId  = Registries.ITEM.getId(output);
-        Identifier recipeId = Identifier.of(itemId.getNamespace(), itemId.getPath());
-        SmithingTransformRecipeJsonBuilder.create(
-                Ingredient.ofItem(template),
-                Ingredient.ofItem(input),
-                this.ingredientFromTag(addition),
+        Identifier itemId  = BuiltInRegistries.ITEM.getKey(output);
+        Identifier recipeId = Identifier.fromNamespaceAndPath(itemId.getNamespace(), itemId.getPath());
+        SmithingTransformRecipeBuilder.smithing(
+                Ingredient.of(template),
+                Ingredient.of(input),
+                this.tag(addition),
                 category,
                 output
         )
-                .criterion("have_refining_template", this.conditionsFromTag(ModTags.Items.REFINING_TEMPLATE))
-                .offerTo(this.exporter, recipeId.toString());
+                .unlocks("have_refining_template", this.has(ModTags.Items.REFINING_TEMPLATE))
+                .save(this.output, recipeId.toString());
     }
 
-    public void offerRefiningTemplateCopyingRecipe(ItemConvertible template) {
-        this.createShaped(RecipeCategory.MISC, template, 2)
-                .input('#', Items.EMERALD)
-                .input('C', template)
+    public void offerRefiningTemplateCopyingRecipe(ItemLike template) {
+        this.shaped(RecipeCategory.MISC, template, 2)
+                .define('#', Items.EMERALD)
+                .define('C', template)
                 .pattern("#C#")
                 .pattern("# #")
                 .pattern("###")
-                .criterion(hasItem(template), this.conditionsFromItem(template))
-                .offerTo(this.exporter);
+                .unlockedBy(getHasName(template), this.has(template))
+                .save(this.output);
     }
 }

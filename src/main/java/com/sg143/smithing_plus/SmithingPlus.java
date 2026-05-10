@@ -2,10 +2,10 @@ package com.sg143.smithing_plus;
 
 import com.sg143.smithing_plus.item.ModItemGroup;
 import com.sg143.smithing_plus.item.ModItems;
-import com.sg143.smithing_plus.util.LootTableModifier;
+import com.sg143.smithing_plus.util.loottable.LootTableModifier;
 import net.fabricmc.api.ModInitializer;
 
-import net.minecraft.inventory.LootableInventory;
+import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,5 +24,9 @@ public class SmithingPlus implements ModInitializer {
 		LootTableModifier.modifyLootTables();
 
 		LOGGER.info("Hello Fabric world!");
+	}
+
+	public static Identifier identifier(String path) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 }
