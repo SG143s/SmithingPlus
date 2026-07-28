@@ -13,6 +13,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -24,13 +25,13 @@ public class RecipeOverwriteProvider extends FabricRecipeProvider {
     }
 
     @Override
-    protected Identifier getRecipeIdentifier(Identifier id) {
+    protected @NonNull Identifier getRecipeIdentifier(Identifier id) {
         // Here, use the id namespace as folder — this controls output path
         return Identifier.fromNamespaceAndPath(id.getNamespace(), id.getPath());
     }
 
     @Override
-    protected RecipeProvider createRecipeProvider(HolderLookup.Provider wrapperLookup, RecipeOutput recipeExporter) {
+    protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider wrapperLookup, @NonNull RecipeOutput recipeExporter) {
         RefiningRecipeProvider refiningRecipeProvider = new RefiningRecipeProvider(wrapperLookup, recipeExporter);
         return new RecipeProvider(wrapperLookup, recipeExporter) {
             @Override
@@ -60,6 +61,12 @@ public class RecipeOverwriteProvider extends FabricRecipeProvider {
                         new RefiningData(ModItems.SWORD_TEMPLATE, ModItems.UNREFINED_IRON_SWORD, ItemTags.IRON_TOOL_MATERIALS, RecipeCategory.COMBAT, Items.IRON_SWORD),
                         new RefiningData(ModItems.SHOVEL_TEMPLATE, ModItems.UNREFINED_IRON_SHOVEL, ItemTags.IRON_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.IRON_SHOVEL),
                         new RefiningData(ModItems.HOE_TEMPLATE, ModItems.UNREFINED_IRON_HOE, ItemTags.IRON_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.IRON_HOE),
+
+                        new RefiningData(ModItems.PICKAXE_TEMPLATE, ModItems.UNREFINED_COPPER_PICKAXE, ItemTags.COPPER_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.COPPER_PICKAXE),
+                        new RefiningData(ModItems.AXE_TEMPLATE, ModItems.UNREFINED_COPPER_AXE, ItemTags.COPPER_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.COPPER_AXE),
+                        new RefiningData(ModItems.SWORD_TEMPLATE, ModItems.UNREFINED_COPPER_SWORD, ItemTags.COPPER_TOOL_MATERIALS, RecipeCategory.COMBAT, Items.COPPER_SWORD),
+                        new RefiningData(ModItems.SHOVEL_TEMPLATE, ModItems.UNREFINED_COPPER_SHOVEL, ItemTags.COPPER_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.COPPER_SHOVEL),
+                        new RefiningData(ModItems.HOE_TEMPLATE, ModItems.UNREFINED_COPPER_HOE, ItemTags.COPPER_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.COPPER_HOE),
 
                         new RefiningData(ModItems.PICKAXE_TEMPLATE, ModItems.UNREFINED_GOLDEN_PICKAXE, ItemTags.GOLD_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.GOLDEN_PICKAXE),
                         new RefiningData(ModItems.AXE_TEMPLATE, ModItems.UNREFINED_GOLDEN_AXE, ItemTags.GOLD_TOOL_MATERIALS, RecipeCategory.TOOLS, Items.GOLDEN_AXE),
@@ -119,7 +126,7 @@ public class RecipeOverwriteProvider extends FabricRecipeProvider {
 
 
     @Override
-    public String getName() {
+    public @NonNull String getName() {
         return "Overwritten Recipe";
     }
 }

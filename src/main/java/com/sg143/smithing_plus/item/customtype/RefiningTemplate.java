@@ -1,15 +1,13 @@
 package com.sg143.smithing_plus.item.customtype;
 
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Item.Properties;
-import net.minecraft.world.item.Item.TooltipContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.ChatFormatting;
 import net.minecraft.world.item.component.TooltipDisplay;
+import org.jspecify.annotations.NonNull;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 public class RefiningTemplate extends Item {
@@ -20,7 +18,7 @@ public class RefiningTemplate extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> consumer, TooltipFlag type) {
+    public void appendHoverText(@NonNull ItemStack stack, @NonNull TooltipContext context, @NonNull TooltipDisplay display, Consumer<Component> consumer, TooltipFlag type) {
 
         consumer.accept(Component.translatable("tooltip.smithing-plus.refining_template.type").withStyle(ChatFormatting.GRAY));
         consumer.accept(Component.empty());
@@ -38,6 +36,8 @@ public class RefiningTemplate extends Item {
             case "hoe":
                 consumer.accept(Component.translatable("tooltip.smithing-plus.hoe_refining_template.applyOption").withStyle(ChatFormatting.BLUE));
                 break;
+            case "spear":
+                consumer.accept(Component.translatable("tooltip.smithing-plus.spear_refining_template.applyOption").withStyle(ChatFormatting.BLUE));
             default:
                 consumer.accept(Component.translatable("tooltip.smithing-plus.sword_refining_template.applyOption").withStyle(ChatFormatting.BLUE));
         }

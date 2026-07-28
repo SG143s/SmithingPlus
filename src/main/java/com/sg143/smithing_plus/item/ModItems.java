@@ -27,43 +27,57 @@ public class ModItems {
             settings -> new RefiningTemplate("shovel", settings));
     public static final Item HOE_TEMPLATE = registerItem("hoe_refining_template",
             settings -> new RefiningTemplate("hoe", settings));
+    public static final Item SPEAR_TEMPLATE = registerItem("spear_refining_template",
+            settings -> new RefiningTemplate("spear", settings));
     //endregion
     //region === UNREFINED DIAMOND ===
     public static final Item UNREFINED_DIAMOND_PICKAXE =
             registerItem("unrefined_diamond_pickaxe",
-                    new Item.Properties().pickaxe(ToolMaterial.WOOD, 1.0F, -2.8F));
+                    new Item.Properties().pickaxe(ModToolMaterial.UNREFINED_DIAMOND, 1.0F, -2.8F));
     public static final Item UNREFINED_DIAMOND_AXE = registerItem("unrefined_diamond_axe",
-            settings -> new AxeItem(ModToolMaterial.UNREFINED_DIAMOND, 4.25f, -3.1f, settings));
+            settings -> new AxeItem(ModToolMaterial.UNREFINED_DIAMOND, 7.0f, -3.2f, settings));
     public static final Item UNREFINED_DIAMOND_SWORD = registerItem("unrefined_diamond_sword",
-            new Item.Properties().sword(ModToolMaterial.UNREFINED_DIAMOND, 2.0f, -2.4f));
+            new Item.Properties().sword(ModToolMaterial.UNREFINED_DIAMOND, 3.0f, -2.4f));
     public static final Item UNREFINED_DIAMOND_SHOVEL = registerItem("unrefined_diamond_shovel",
-            settings -> new ShovelItem(ModToolMaterial.UNREFINED_DIAMOND, 0.5f, -3.0f, settings));
+            settings -> new ShovelItem(ModToolMaterial.UNREFINED_DIAMOND, 1.5f, -3.0f, settings));
     public static final Item UNREFINED_DIAMOND_HOE = registerItem("unrefined_diamond_hoe",
-            settings -> new HoeItem(ModToolMaterial.UNREFINED_DIAMOND, -3.0f, -1f, settings));
+            settings -> new HoeItem(ModToolMaterial.UNREFINED_DIAMOND, -1.0f, -1f, settings));
     //endregion
     //region === UNREFINED IRON ===
     public static final Item UNREFINED_IRON_PICKAXE = registerItem("unrefined_iron_pickaxe",
-            new Item.Properties().pickaxe(ModToolMaterial.UNREFINED_IRON, 0.0f, -2.8f));
+            new Item.Properties().pickaxe(ModToolMaterial.UNREFINED_IRON, 1.0f, -2.8f));
     public static final Item UNREFINED_IRON_AXE = registerItem("unrefined_iron_axe",
-            settings -> new AxeItem(ModToolMaterial.UNREFINED_IRON, 4.25f, -3.1f, settings));
+            settings -> new AxeItem(ModToolMaterial.UNREFINED_IRON, 7.0f, -3.2f, settings));
     public static final Item UNREFINED_IRON_SWORD = registerItem("unrefined_iron_sword",
-            new Item.Properties().sword(ModToolMaterial.UNREFINED_IRON, 2.0f, -2.4f));
+            new Item.Properties().sword(ModToolMaterial.UNREFINED_IRON, 3.0f, -2.4f));
     public static final Item UNREFINED_IRON_SHOVEL = registerItem("unrefined_iron_shovel",
-            settings -> new ShovelItem(ModToolMaterial.UNREFINED_IRON, 0.5f, -3.0f, settings));
+            settings -> new ShovelItem(ModToolMaterial.UNREFINED_IRON, 1.5f, -3.0f, settings));
     public static final Item UNREFINED_IRON_HOE = registerItem("unrefined_iron_hoe",
-            settings -> new HoeItem(ModToolMaterial.UNREFINED_IRON, -3.0f, -1f, settings));
+            settings -> new HoeItem(ModToolMaterial.UNREFINED_IRON, -1.0f, -1f, settings));
     //endregion
     //region === UNREFINED GOLD ===
     public static final Item UNREFINED_GOLDEN_PICKAXE = registerItem("unrefined_golden_pickaxe",
-            new Item.Properties().pickaxe(ModToolMaterial.UNREFINED_GOLD, 0.0f, -2.8f));
+            new Item.Properties().pickaxe(ModToolMaterial.UNREFINED_GOLD, 1.0f, -2.8f));
     public static final Item UNREFINED_GOLDEN_AXE = registerItem("unrefined_golden_axe",
-            settings -> new AxeItem(ModToolMaterial.UNREFINED_GOLD, 4.25f, -3.1f, settings));
+            settings -> new AxeItem(ModToolMaterial.UNREFINED_GOLD, 7.0f, -3.1f, settings));
     public static final Item UNREFINED_GOLDEN_SWORD = registerItem("unrefined_golden_sword",
-            new Item.Properties().sword(ModToolMaterial.UNREFINED_GOLD, 2.0f, -2.4f));
+            new Item.Properties().sword(ModToolMaterial.UNREFINED_GOLD, 3.0f, -2.4f));
     public static final Item UNREFINED_GOLDEN_SHOVEL = registerItem("unrefined_golden_shovel",
-            settings -> new ShovelItem(ModToolMaterial.UNREFINED_GOLD, 0.5f, -3.0f, settings));
+            settings -> new ShovelItem(ModToolMaterial.UNREFINED_GOLD, 1.5f, -3.0f, settings));
     public static final Item UNREFINED_GOLDEN_HOE = registerItem("unrefined_golden_hoe",
             settings -> new HoeItem(ModToolMaterial.UNREFINED_GOLD, -1.0f, -1f, settings));
+    //endregion
+    //region === UNREFINED COPPER ===
+    public static final Item UNREFINED_COPPER_PICKAXE = registerItem("unrefined_copper_pickaxe",
+            new Item.Properties().pickaxe(ModToolMaterial.UNREFINED_COPPER, 1.0f, -2.8f));
+    public static final Item UNREFINED_COPPER_AXE = registerItem("unrefined_copper_axe",
+            settings -> new AxeItem(ModToolMaterial.UNREFINED_COPPER, 7.0f, -3.1f, settings));
+    public static final Item UNREFINED_COPPER_SWORD = registerItem("unrefined_copper_sword",
+            new Item.Properties().sword(ModToolMaterial.UNREFINED_COPPER, 3.0f, -2.4f));
+    public static final Item UNREFINED_COPPER_SHOVEL = registerItem("unrefined_copper_shovel",
+            settings -> new ShovelItem(ModToolMaterial.UNREFINED_COPPER, 1.5f, -3.0f, settings));
+    public static final Item UNREFINED_COPPER_HOE = registerItem("unrefined_copper_hoe",
+            settings -> new HoeItem(ModToolMaterial.UNREFINED_COPPER, -1.0f, -1f, settings));
     //endregion
     //region === OTHER ===
     public static Item TOOL_HANDLE = registerItem("tool_handle", Item::new);

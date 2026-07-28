@@ -11,6 +11,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.ItemTags;
+import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -21,7 +22,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    protected RecipeProvider createRecipeProvider(HolderLookup.Provider wrapperLookup, RecipeOutput recipeExporter) {
+    protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider wrapperLookup, @NonNull RecipeOutput recipeExporter) {
         RefiningRecipeProvider refiningRecipeProvider = new RefiningRecipeProvider(wrapperLookup, recipeExporter);
         return new RecipeProvider(wrapperLookup, recipeExporter) {
             @Override
@@ -30,6 +31,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 unrefinedIronRecipe();
                 unrefinedGoldRecipe();
                 unrefinedDiamondRecipe();
+                unrefinedCopperRecipe();
                 this.shaped(RecipeCategory.MISC, ModItems.TOOL_HANDLE)
                         .define('#', Items.STICK)
                         .define('C', Items.RESIN_CLUMP)
@@ -51,7 +53,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         ModItems.SHOVEL_TEMPLATE,
                         ModItems.SWORD_TEMPLATE,
                         ModItems.AXE_TEMPLATE,
-                        ModItems.PICKAXE_TEMPLATE
+                        ModItems.PICKAXE_TEMPLATE,
+                        ModItems.SPEAR_TEMPLATE
                 );
                 for (Item template : templates) {
                     refiningRecipeProvider.offerRefiningTemplateCopyingRecipe(template);
@@ -71,6 +74,26 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                             .define('#', this.tag(ItemTags.IRON_TOOL_MATERIALS))
                             .define('C', ModItems.TOOL_HANDLE)
                             .unlockedBy(getHasName(Items.IRON_INGOT), this.has(Items.IRON_INGOT));
+                    for (String line : tool.pattern) {
+                        builder.pattern(line);
+                    }
+                    builder.save(this.output);
+                }
+            }
+            private void unrefinedCopperRecipe() {
+                record ToolData(Item result, RecipeCategory category, List<String> pattern) {}
+                List<ToolData> tools = List.of(
+                        new ToolData(ModItems.UNREFINED_COPPER_PICKAXE, RecipeCategory.TOOLS, List.of("###", " C ", " C ")),
+                        new ToolData(ModItems.UNREFINED_COPPER_AXE, RecipeCategory.TOOLS, List.of("##", "#C", " C")),
+                        new ToolData(ModItems.UNREFINED_COPPER_SHOVEL, RecipeCategory.TOOLS, List.of("#", "C", "C")),
+                        new ToolData(ModItems.UNREFINED_COPPER_SWORD, RecipeCategory.TOOLS, List.of("#", "#", "C")),
+                        new ToolData(ModItems.UNREFINED_COPPER_HOE, RecipeCategory.TOOLS, List.of("##", " C", " C"))
+                );
+                for (ToolData tool : tools) {
+                    var builder = this.shaped(tool.category, tool.result)
+                            .define('#', this.tag(ItemTags.COPPER_TOOL_MATERIALS))
+                            .define('C', ModItems.TOOL_HANDLE)
+                            .unlockedBy(getHasName(Items.COPPER_INGOT), this.has(Items.COPPER_INGOT));
                     for (String line : tool.pattern) {
                         builder.pattern(line);
                     }
@@ -121,7 +144,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    public String getName() {
+    public @NonNull String getName() {
         return "Generated Recipe";
     }
 }

@@ -23,6 +23,11 @@ public class ModItemGroup {
         entries.accept(ModItems.UNREFINED_GOLDEN_AXE);
         entries.accept(ModItems.UNREFINED_GOLDEN_HOE);
 
+        entries.accept(ModItems.UNREFINED_COPPER_SHOVEL);
+        entries.accept(ModItems.UNREFINED_COPPER_PICKAXE);
+        entries.accept(ModItems.UNREFINED_COPPER_AXE);
+        entries.accept(ModItems.UNREFINED_COPPER_HOE);
+
         entries.accept(ModItems.UNREFINED_IRON_SHOVEL);
         entries.accept(ModItems.UNREFINED_IRON_PICKAXE);
         entries.accept(ModItems.UNREFINED_IRON_AXE);
@@ -36,10 +41,12 @@ public class ModItemGroup {
 
     public static void addWeaponMenu (FabricCreativeModeTabOutput entries) {
         entries.accept(ModItems.UNREFINED_GOLDEN_SWORD);
+        entries.accept(ModItems.UNREFINED_COPPER_SWORD);
         entries.accept(ModItems.UNREFINED_IRON_SWORD);
         entries.accept(ModItems.UNREFINED_DIAMOND_SWORD);
 
         entries.accept(ModItems.UNREFINED_GOLDEN_AXE);
+        entries.accept(ModItems.UNREFINED_COPPER_AXE);
         entries.accept(ModItems.UNREFINED_IRON_AXE);
         entries.accept(ModItems.UNREFINED_DIAMOND_AXE);
     }
