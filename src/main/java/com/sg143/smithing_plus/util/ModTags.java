@@ -10,6 +10,7 @@ public class ModTags {
     public static class Items {
         public static final TagKey<Item> UNREFINED_DIAMOND_ITEM = createTag("unrefined_diamond_item");
         public static final TagKey<Item> UNREFINED_IRON_ITEM = createTag("unrefined_iron_item");
+        public static final TagKey<Item> UNREFINED_COPPER_ITEM = createTag("unrefined_copper_item");
         public static final TagKey<Item> UNREFINED_GOLD_ITEM = createTag("unrefined_gold_item");
         public static final TagKey<Item> REFINING_TEMPLATE = createTag("refining_template_item");
 

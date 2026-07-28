@@ -3,7 +3,7 @@
 	"package": "com.sg143.smithing_plus.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+      "ToolMaterialMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

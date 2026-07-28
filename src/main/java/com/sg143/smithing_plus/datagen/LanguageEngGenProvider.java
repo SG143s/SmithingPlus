@@ -3,6 +3,7 @@ package com.sg143.smithing_plus.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -12,7 +13,7 @@ public class LanguageEngGenProvider extends FabricLanguageProvider {
     }
 
     @Override
-    public void generateTranslations(HolderLookup.Provider wrapperLookup, TranslationBuilder translationBuilder) {
+    public void generateTranslations(HolderLookup.@NonNull Provider wrapperLookup, TranslationBuilder translationBuilder) {
         //region == TEMPLATES ==
         translationBuilder.add("item.smithing-plus.sword_refining_template", "Sword Refining Template");
         translationBuilder.add("item.smithing-plus.shovel_refining_template", "Shovel Refining Template");
@@ -27,6 +28,14 @@ public class LanguageEngGenProvider extends FabricLanguageProvider {
         translationBuilder.add("item.smithing-plus.unrefined_diamond_shovel", "Unrefined Diamond Shovel");
         translationBuilder.add("item.smithing-plus.unrefined_diamond_sword", "Unrefined Diamond Sword");
         translationBuilder.add("item.smithing-plus.unrefined_diamond_hoe", "Unrefined Diamond Hoe");
+        //endregion
+
+        //region == UNREFINED COPPERS ==
+        translationBuilder.add("item.smithing-plus.unrefined_copper_pickaxe", "Unrefined Copper Pickaxe");
+        translationBuilder.add("item.smithing-plus.unrefined_copper_axe", "Unrefined Copper Axe");
+        translationBuilder.add("item.smithing-plus.unrefined_copper_shovel", "Unrefined Copper Shovel");
+        translationBuilder.add("item.smithing-plus.unrefined_copper_sword", "Unrefined Copper Sword");
+        translationBuilder.add("item.smithing-plus.unrefined_copper_hoe", "Unrefined Copper Hoe");
         //endregion
 
         //region == UNREFINED IRONS ==

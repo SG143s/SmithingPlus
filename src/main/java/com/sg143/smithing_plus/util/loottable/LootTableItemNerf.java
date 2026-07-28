@@ -28,6 +28,9 @@ public class LootTableItemNerf implements LootItemFunction {
         if (stack.is(Items.DIAMOND)) {
             return new ItemStack(Items.DIAMOND, 1);
         }
+        if (stack.is(Items.COPPER_INGOT)) {
+            return new ItemStack(Items.COPPER_NUGGET);
+        }
         //endregion
         //region IRON TOOLS
         if (stack.is(Items.IRON_PICKAXE)) {

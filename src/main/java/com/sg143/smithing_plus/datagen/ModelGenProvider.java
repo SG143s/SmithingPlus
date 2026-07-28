@@ -3,10 +3,10 @@ package com.sg143.smithing_plus.datagen;
 import com.sg143.smithing_plus.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
-import net.minecraft.client.data.*;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import org.jspecify.annotations.NonNull;
 
 public class ModelGenProvider extends FabricModelProvider {
     public ModelGenProvider(FabricPackOutput output) {
@@ -14,7 +14,7 @@ public class ModelGenProvider extends FabricModelProvider {
     }
 
     @Override
-    public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
+    public void generateBlockStateModels(@NonNull BlockModelGenerators blockStateModelGenerator) {
 
     }
 
@@ -26,6 +26,7 @@ public class ModelGenProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.AXE_TEMPLATE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.SHOVEL_TEMPLATE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.HOE_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.SPEAR_TEMPLATE, ModelTemplates.FLAT_ITEM);
         //endregion
         //region == UNREFINED DIAMONDS ==
         itemModelGenerator.generateFlatItem(ModItems.UNREFINED_DIAMOND_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
@@ -48,6 +49,13 @@ public class ModelGenProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.UNREFINED_GOLDEN_SHOVEL, ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.UNREFINED_GOLDEN_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.UNREFINED_GOLDEN_HOE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        //endregion
+        //region == UNREFINED COPPERS ==
+        itemModelGenerator.generateFlatItem(ModItems.UNREFINED_COPPER_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.UNREFINED_COPPER_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.UNREFINED_COPPER_SHOVEL, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.UNREFINED_COPPER_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.UNREFINED_COPPER_HOE, ModelTemplates.FLAT_HANDHELD_ITEM);
         //endregion
         //region == OTHER ==
         itemModelGenerator.generateFlatItem(ModItems.TOOL_HANDLE, ModelTemplates.FLAT_HANDHELD_ITEM);
